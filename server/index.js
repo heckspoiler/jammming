@@ -23,7 +23,6 @@ app.get("/", (req, res) => {
 });
 
 let accessToken;
-console.log("outisde", accessToken);
 
 app.get("/callback", async (req, res) => {
   try {
@@ -41,13 +40,10 @@ app.get("/callback", async (req, res) => {
         },
       }
     );
+    const spotifyData = spotifyResponse.data;
     accessToken = spotifyResponse.data.access_token;
 
-    res.send(
-      `<h1 style="font-family: Arial; color: red;">Authentication successful! You can now access your top artists.</h1>
-      <h2>${accessToken}</h2>
-      `
-    );
+    res.send(spotifyData); //getting the token and sending it to localhost 8000 frontend
   } catch (error) {
     console.error("Error fetching token from Spotify:", error.response.data);
     res.status(500).send("Error fetching token from Spotify.");
@@ -68,6 +64,7 @@ app.get("/artists", async (req, res) => {
         },
       }
     );
+    console.log(userTopArtistsResponse);
     res.send(userTopArtistsResponse.data);
   } catch (error) {
     console.error(
@@ -80,5 +77,4 @@ app.get("/artists", async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
-  console.log(SPOTIFY_ID, process.env.REDIRECT_URI_DECODED);
 });
