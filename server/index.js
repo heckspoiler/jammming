@@ -22,6 +22,9 @@ app.get("/", (req, res) => {
   );
 });
 
+let accessToken;
+console.log("outisde", accessToken);
+
 app.get("/callback", async (req, res) => {
   try {
     const spotifyResponse = await axios.post(
@@ -38,9 +41,25 @@ app.get("/callback", async (req, res) => {
         },
       }
     );
-    const accessToken = spotifyResponse.data.access_token;
-    console.log("Access Token:", accessToken);
+    accessToken = spotifyResponse.data.access_token;
+    console.log("inside: ", accessToken);
+    res.send(
+      `<h1 style="font-family: Arial; color: red;">Authentication successful! You can now access your top artists.</h1>
+      <h2>${spotifyResponse}</h2>
+      `
+    );
+  } catch (error) {
+    console.error("Error fetching token from Spotify:", error.response.data);
+    res.status(500).send("Error fetching token from Spotify.");
+  }
+});
 
+app.get("/artists", async (req, res) => {
+  if (!accessToken) {
+    return res.status(401).send("Not authenticated, bitch.");
+  }
+
+  try {
     const userTopArtistsResponse = await axios.get(
       "https://api.spotify.com/v1/me/top/artists",
       {
@@ -49,11 +68,13 @@ app.get("/callback", async (req, res) => {
         },
       }
     );
-
     res.send(userTopArtistsResponse.data);
   } catch (error) {
-    console.error("Error fetching token from Spotify:", error.response.data);
-    res.status(500).send("Error fetching token from Spotify.");
+    console.error(
+      "Error fetching top artists from Spotify:",
+      error.response.data
+    );
+    res.status(500).send("Error fetching top artists from Spotify.");
   }
 });
 
