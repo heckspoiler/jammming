@@ -23,10 +23,10 @@ function App() {
       <button onClick={fetchArtists}>Fetch Artists</button>
       {artists.map((artist) => (
         <div key={artist.id}>
-          <h2 className="artist-title">
+          <h3 className="artist-title">
             {artist.name}
             <span className="titlespan"></span>
-          </h2>
+          </h3>
           <img src={artist.images[2].url} alt={artist.name} />
         </div>
       ))}

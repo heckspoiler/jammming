@@ -54,10 +54,10 @@ app.get("/artists", async (req, res) => {
   if (!accessToken) {
     return res.status(401).send("Not authenticated, bitch.");
   }
-
+  const limit = req.query.limit || 20;
   try {
     const userTopArtistsResponse = await axios.get(
-      "https://api.spotify.com/v1/me/top/artists",
+      `https://api.spotify.com/v1/me/top/artists?limit=${limit}`,
       {
         headers: {
           Authorization: "Bearer " + accessToken,

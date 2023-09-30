@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Nicephore Variable";
+  src: url("../public/fonts/Nicephore-Variable.woff"), url("../public/fonts/Nicephore-Variable.woff");
+  font-weight: 100 900;
+  font-style: normal;
+
+}
+
 .App {}
 
 .artist-title {
@@ -15,6 +23,23 @@
   z-index: -1;
   background-color: rgb(62, 241, 206);
   left: 0;
-  top: 18px;
+  top: 14px;
 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Nicephore Variable";
+}
+
+h3 {
+  transition: font-weight 0.2s ease-in-out;
+  font-weight: 300;
+}
+
+h3:hover {
+  font-weight: 700;
 }
