@@ -1,10 +1,11 @@
 require("dotenv").config();
-
+const cors = require("cors");
 const express = require("express");
 const axios = require("axios");
 
 const queryString = require("node:querystring");
 const app = express();
+app.use(cors());
 const PORT = 8000;
 
 const SPOTIFY_ID = process.env.SPOTIFY_ID;
