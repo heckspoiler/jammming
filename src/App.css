@@ -8,13 +8,31 @@
 
 .App {}
 
-.artist-title {
+.landing-section {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-left: 50px;
+}
+
+.section-main-title {
   position: relative;
   width: fit-content;
-  mix-blend-mode: difference;
-  padding: 2px 2px;
-
 }
+
+.section-main-title span {
+  background-color: rgb(0, 204, 255);
+  top: 15px;
+}
+
+li {
+  font-family: "Nicephore Variable";
+}
+
+
 
 .titlespan {
   position: absolute;
@@ -23,7 +41,7 @@
   z-index: -1;
   background-color: rgb(62, 241, 206);
   left: 0;
-  top: 14px;
+  top: 24px;
 
 }
 
@@ -35,9 +53,14 @@ h5 {
   font-family: "Nicephore Variable";
 }
 
+h2 {
+  font-size: 1.3rem;
+}
+
 h3 {
   transition: font-weight 0.2s ease-in-out;
   font-weight: 300;
+  font-size: 1rem;
 }
 
 h3:hover {
