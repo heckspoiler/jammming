@@ -42,10 +42,10 @@ app.get("/callback", async (req, res) => {
       }
     );
     accessToken = spotifyResponse.data.access_token;
-    console.log("inside: ", accessToken);
+
     res.send(
       `<h1 style="font-family: Arial; color: red;">Authentication successful! You can now access your top artists.</h1>
-      <h2>${spotifyResponse}</h2>
+      <h2>${accessToken}</h2>
       `
     );
   } catch (error) {
