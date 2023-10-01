@@ -4,6 +4,18 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
-      padding-top: 100px;
-      background-image: linear-gradient(173.1deg, rgba(226, 66, 249, 0.94) 10.2%, rgba(79, 147, 249, 1) 77.3%);
+      padding-top: 12rem;
+      background-color: rgb(93, 247, 93);
+}
+
+.title {
+      position: absolute;
+      top: 0;
+      left: -60px;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      color: rgb(247, 241, 178);
+      text-shadow: 1px 1px 1px black;
+      ;
 }

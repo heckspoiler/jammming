@@ -5,6 +5,7 @@ import styles from "./Home.module.css";
 const Home = () => {
   return (
     <div className={styles.home}>
+      <h1 className={styles.title}>get your stuff together</h1>
       <Artists />
       <Playlists />
     </div>
