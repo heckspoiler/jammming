@@ -18,6 +18,7 @@ const ArtistPage = () => {
   useEffect(() => {
     fetchArtists();
   }, []);
+
   return (
     <div>
       {artists.map((artist) => (

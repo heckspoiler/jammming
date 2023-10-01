@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 
 // import ArtistPage from "./pages/ArtistPage/ArtistPage";
 import "./App.css";
+import ArtistPage from "./pages/ArtistPage/ArtistPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/artists" element={<ArtistPage />} />
         </Routes>
       </Router>
     </div>
