@@ -1,10 +1,10 @@
-.artistImg {
+.playlistImg {
       scale: 0.8;
       height: 150px;
       width: 150px;
 }
 
-.artistTitle {
+.playlistTitle {
       width: 100%;
       border: 1px solid black;
       text-align: center;
@@ -18,11 +18,10 @@
       justify-content: center;
 }
 
-.artistsField {
+.playlistField {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
       position: relative;
-      z-index: 100;
 }

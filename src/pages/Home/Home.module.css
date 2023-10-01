@@ -1,0 +1,9 @@
+.home {
+      min-height: 100vh;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding-top: 100px;
+      background-image: linear-gradient(173.1deg, rgba(226, 66, 249, 0.94) 10.2%, rgba(79, 147, 249, 1) 77.3%);
+}
