@@ -103,24 +103,30 @@ app.get("/tracks", async (req, res) => {
   if (!accessToken) {
     return res.status(401).send("Not authenticated, bitch");
   }
-  const limit = req.query.limit || 200;
+  const limit = req.query.limit || 20;
   try {
-    const userTopTracksRespons = await axios.get(
-      `https://api.spotify.com/v1/me/tracks?limit=${limit}`,
+    const userTopTracksResponse = await axios.get(
+      `https://api.spotify.com/v1/me/top/tracks?limit=${limit}`,
       {
-        haders: {
-          Athorization: "Bearer " + accessToken,
+        headers: {
+          Authorization: "Bearer " + accessToken,
         },
       }
     );
-    console.log(userTopTracksRespons.data);
+    console.log(userTopTracksResponse.data);
     res.json(userTopTracksResponse.data);
   } catch (error) {
     console.error(
       "Error fetching top artists from Spotify:",
       error.response.data
     );
-    res.status(500).send("Error fetching top artists from Spotify.");
+    res
+      .status(500)
+      .send(
+        `Error fetching tracks from Spotify. Because of this here: ${JSON.stringify(
+          error.response.data
+        )}`
+      );
   }
 });
 
