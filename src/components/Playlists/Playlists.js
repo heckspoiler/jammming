@@ -21,9 +21,7 @@ const Playlists = () => {
 
   return (
     <div className="playlists landing-section">
-      <h2 className="section-main-title">
-        Favorite Playlists<span className="titlespan"></span>
-      </h2>
+      <h2 className="section-main-title">Favorite Playlists</h2>
       {playlists.map((playlist) => (
         <div key={playlist.id} className={styles.playlistField}>
           <img
@@ -31,10 +29,7 @@ const Playlists = () => {
             alt={playlist.name}
             className={styles.playlistImg}
           />
-          <h3 className={styles.playlistTitle}>
-            {playlist.name}
-            <span className="titlespan"></span>
-          </h3>
+          <h3 className={styles.playlistTitle}>{playlist.name}</h3>
         </div>
       ))}
     </div>

@@ -1,0 +1,27 @@
+.tracksImg {
+      scale: 0.8;
+      height: 150px;
+      width: 150px;
+}
+
+.tracksTitle {
+      width: 100%;
+      border: 1px solid black;
+      text-align: center;
+      padding: 4px 4px;
+      position: absolute;
+      background-color: white;
+      font-size: 0.6rem;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.tracksField {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      position: relative;
+}
