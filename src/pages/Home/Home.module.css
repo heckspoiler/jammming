@@ -5,6 +5,7 @@
       flex-direction: column;
       gap: 30px;
       padding-top: 12rem;
+      padding-left: 10vw;
 }
 
 .title {

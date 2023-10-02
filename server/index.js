@@ -90,7 +90,31 @@ app.get("/playlists", async (req, res) => {
     );
     console.log(userTopPodcastsResponse.data);
     res.json(userTopPodcastsResponse.data);
-    console.log("Tetststst");
+  } catch (error) {
+    console.error(
+      "Error fetching top artists from Spotify:",
+      error.response.data
+    );
+    res.status(500).send("Error fetching top artists from Spotify.");
+  }
+});
+
+app.get("/tracks", async (req, res) => {
+  if (!accessToken) {
+    return res.status(401).send("Not authenticated, bitch");
+  }
+  const limit = req.query.limit || 200;
+  try {
+    const userTopTracksRespons = await axios.get(
+      `https://api.spotify.com/v1/me/tracks?limit=${limit}`,
+      {
+        haders: {
+          Athorization: "Bearer " + accessToken,
+        },
+      }
+    );
+    console.log(userTopTracksRespons.data);
+    res.json(userTopTracksResponse.data);
   } catch (error) {
     console.error(
       "Error fetching top artists from Spotify:",
